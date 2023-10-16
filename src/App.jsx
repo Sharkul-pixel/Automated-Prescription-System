@@ -18,6 +18,14 @@ function App() {
     <>
       <NewPatientForm setPatients={setPatients} />
       <hr />
+      <button
+        onClick={() => {
+          setPatients([]);
+        }}
+      >
+        Clear patients
+      </button>
+      <hr />
       <div>
         {patients.map((patient) => {
           return (
