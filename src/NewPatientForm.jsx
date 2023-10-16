@@ -7,15 +7,15 @@ export default function NewPatientForm({ setPatients }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    const o = {
+    const patient = {
       id: crypto.randomUUID(),
       firstName: firstNameRef.current.value,
       lastName: lastNameRef.current.value,
       phoneNumber: phoneNumberRef.current.value,
     };
-    console.log(o);
+    console.log(patient);
     setPatients((currentPatients) => {
-      return [...currentPatients, o];
+      return [...currentPatients, patient];
     });
   }
 
