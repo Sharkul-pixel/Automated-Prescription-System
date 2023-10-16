@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <NewPatientForm />
+      <NewPatientForm setPatients={setPatients} />
       <hr />
       <div>
         {patients.map((patient) => {

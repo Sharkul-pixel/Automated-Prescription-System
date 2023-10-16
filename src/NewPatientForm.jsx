@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function NewPatientForm() {
+export default function NewPatientForm({ setPatients }) {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const phoneNumberRef = useRef();
@@ -14,6 +14,9 @@ export default function NewPatientForm() {
       phoneNumber: phoneNumberRef.current.value,
     };
     console.log(o);
+    setPatients((currentPatients) => {
+      return [...currentPatients, o];
+    });
   }
 
   return (
