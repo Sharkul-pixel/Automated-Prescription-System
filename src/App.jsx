@@ -7,9 +7,19 @@ function App() {
   const lastNameRef = useRef();
   const phoneNumberRef = useRef();
 
+  function onSubmit(e) {
+    e.preventDefault();
+    const o = {
+      firstName: firstNameRef.current.value,
+      lastName: lastNameRef.current.value,
+      phoneNumber: phoneNumberRef.current.value,
+    };
+    console.log(o);
+  }
+
   return (
     <>
-      <form action="">
+      <form action="" onSubmit={onSubmit}>
         <div>
           <label htmlFor="">First name</label>
           <input ref={firstNameRef} type="text" />
