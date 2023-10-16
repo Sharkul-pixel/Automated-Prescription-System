@@ -8,6 +8,7 @@ export default function NewPatientForm() {
   function onSubmit(e) {
     e.preventDefault();
     const o = {
+      id: crypto.randomUUID(),
       firstName: firstNameRef.current.value,
       lastName: lastNameRef.current.value,
       phoneNumber: phoneNumberRef.current.value,
