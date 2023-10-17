@@ -8,10 +8,15 @@ import {
 } from "react-router-dom";
 
 import Root from "./routes/Root";
+import Patient from "./routes/Patient.jsx";
 import "./index.css";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Root />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route path="/patient/:patientId" element={<Patient />}></Route>
+    </Route>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
