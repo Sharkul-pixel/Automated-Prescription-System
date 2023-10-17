@@ -24,17 +24,29 @@ export default function NewPatientForm({ setPatients }) {
       <form action="" onSubmit={onSubmit}>
         <div>
           <label htmlFor="">First name</label>
-          <input ref={firstNameRef} type="text" />
+          <input
+            className="border border-slate-400"
+            ref={firstNameRef}
+            type="text"
+          />
         </div>
         <div>
           <label htmlFor="">Last name</label>
-          <input ref={lastNameRef} type="text" />
+          <input
+            className="border border-slate-400"
+            ref={lastNameRef}
+            type="text"
+          />
         </div>
         <div>
           <label htmlFor="">Phone number</label>
-          <input ref={phoneNumberRef} type="tel" />
+          <input
+            className="border border-slate-400"
+            ref={phoneNumberRef}
+            type="tel"
+          />
         </div>
-        <input type="submit" value={"Add"} />
+        <input className="border" type="submit" value={"Add"} />
       </form>
     </>
   );
