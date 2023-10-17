@@ -14,13 +14,13 @@ import "./index.css";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route path="/patient/:patientId" element={<Patient />}></Route>
-    </Route>
-  )
+      <Route path="/patients/:patientId" element={<Patient />}></Route>
+    </Route>,
+  ),
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
