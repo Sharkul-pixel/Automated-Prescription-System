@@ -9,11 +9,15 @@ import {
 
 import Root from "./routes/Root";
 import Patient from "./routes/Patient.jsx";
+import PatientList, {
+  loader as patientListLoader,
+} from "./routes/PatientList.jsx";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
+      <Route index element={<PatientList />} loader={patientListLoader}></Route>
       <Route path="/patients/:patientId" element={<Patient />}></Route>
     </Route>,
   ),
