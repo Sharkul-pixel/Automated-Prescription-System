@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 import NewPatientForm from "./NewPatientForm";
 
-import "./App.css";
-
 function App() {
   const [patients, setPatients] = useState(() => {
     const patients = localStorage.getItem("patients");
