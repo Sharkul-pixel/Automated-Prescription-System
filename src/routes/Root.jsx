@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import NewPatientForm from "./NewPatientForm";
 
@@ -27,22 +28,7 @@ export default function Root() {
             Clear patients
           </button>
           <hr />
-          <div>
-            {patients.map((patient) => {
-              return (
-                <div
-                  className="my-1 cursor-pointer border border-slate-600 py-2 hover:bg-blue-50"
-                  key={patient.id}
-                >
-                  <span>{patient.firstName}</span>
-                  &nbsp;
-                  <span>{patient.lastName}</span>
-                  &nbsp;
-                  <span>{patient.phoneNumber}</span>
-                </div>
-              );
-            })}
-          </div>
+          <Outlet />
         </div>
       </div>
     </>
