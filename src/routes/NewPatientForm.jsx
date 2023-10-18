@@ -1,4 +1,4 @@
-import { redirect, Form } from "react-router-dom";
+import { redirect, Form, useNavigate } from "react-router-dom";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
@@ -19,8 +19,19 @@ export async function action({ request, params }) {
 }
 
 export default function NewPatientForm() {
+  const navigate = useNavigate();
+
   return (
     <>
+      <button
+        className="border"
+        type="button"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        back
+      </button>
       <Form method="post">
         <div>
           <label>First name</label>
