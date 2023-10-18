@@ -1,24 +1,4 @@
-import { useRef } from "react";
-
-export default function NewPatientForm({ setPatients }) {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const phoneNumberRef = useRef();
-
-  function onSubmit(e) {
-    e.preventDefault();
-    const patient = {
-      id: crypto.randomUUID(),
-      firstName: firstNameRef.current.value,
-      lastName: lastNameRef.current.value,
-      phoneNumber: phoneNumberRef.current.value,
-    };
-    console.log(patient);
-    setPatients((currentPatients) => {
-      return [...currentPatients, patient];
-    });
-  }
-
+export default function NewPatientForm() {
   return (
     <>
       <form action="" onSubmit={onSubmit}>
