@@ -1,32 +1,20 @@
 export default function NewPatientForm() {
   return (
     <>
-      <form action="" onSubmit={onSubmit}>
+      <form>
         <div>
-          <label htmlFor="">First name</label>
-          <input
-            className="border border-slate-400"
-            ref={firstNameRef}
-            type="text"
-          />
+          <label>First name</label>
+          <input className="border border-slate-400" type="text" />
         </div>
         <div>
-          <label htmlFor="">Last name</label>
-          <input
-            className="border border-slate-400"
-            ref={lastNameRef}
-            type="text"
-          />
+          <label>Last name</label>
+          <input className="border border-slate-400" type="text" />
         </div>
         <div>
-          <label htmlFor="">Phone number</label>
-          <input
-            className="border border-slate-400"
-            ref={phoneNumberRef}
-            type="tel"
-          />
+          <label>Phone number</label>
+          <input className="border border-slate-400" type="tel" />
         </div>
-        <input className="border" type="submit" value={"Add"} />
+        <button type="submit">Add</button>
       </form>
     </>
   );
