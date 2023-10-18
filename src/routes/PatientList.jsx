@@ -12,7 +12,7 @@ export default function PatientList() {
     <div>
       {patients.map((patient) => {
         return (
-          <Link to={`/patients/${patient.id}`}>
+          <Link key={patient.id} to={`/patients/${patient.id}`}>
             <div
               className="my-1 cursor-pointer border border-slate-600 py-2 hover:bg-blue-50"
               key={patient.id}
