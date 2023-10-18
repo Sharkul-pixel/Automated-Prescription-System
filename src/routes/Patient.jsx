@@ -1,10 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+
+export async function loader({ params }) {
+  let patients = localStorage.getItem("patients") ?? [];
+  patients = JSON.parse(patients);
+  const patient = patients.find((patient) => patient.id === params.patientId);
+  return { patient };
+}
 
 export default function Patient() {
+  const { patient } = useLoaderData();
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div key={patient.id}>
       <button
         className="border"
         type="button"
@@ -14,7 +22,10 @@ export default function Patient() {
       >
         back
       </button>
-      <div>patient component</div>
+      <div>
+        {patient.firstName} {patient.lastName}
+      </div>
+      <span>{patient.phoneNumber}</span>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Root from "./routes/Root";
-import Patient from "./routes/Patient.jsx";
+import Patient, { loader as patientLoader } from "./routes/Patient.jsx";
 import PatientList, {
   loader as patientListLoader,
 } from "./routes/PatientList.jsx";
@@ -18,7 +18,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<PatientList />} loader={patientListLoader}></Route>
-      <Route path="/patients/:patientId" element={<Patient />}></Route>
+      <Route
+        path="/patients/:patientId"
+        element={<Patient />}
+        loader={patientLoader}
+      ></Route>
     </Route>,
   ),
 );
