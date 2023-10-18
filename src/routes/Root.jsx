@@ -10,14 +10,6 @@ export default function Root() {
             <Link to={`/patients/new`}>add new patient</Link>
           </button>
           <hr />
-          <button
-            onClick={() => {
-              setPatients([]);
-            }}
-          >
-            Clear patients
-          </button>
-          <hr />
           <Outlet />
         </div>
       </div>
