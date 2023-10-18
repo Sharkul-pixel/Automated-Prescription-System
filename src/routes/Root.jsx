@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 export default function Root() {
   return (
     <>
+      <header className="border border-b-2 py-2">header</header>
       <div className="flex min-h-screen">
         <aside className="w-1/4 border-r-2">sidebar</aside>
         <div className="w-3/4">
