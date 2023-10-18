@@ -24,7 +24,7 @@ export default function NewPatientForm() {
   return (
     <>
       <button
-        className="border"
+        className="m-1 bg-slate-500 px-2 text-white"
         type="button"
         onClick={() => {
           navigate(-1);
@@ -32,7 +32,7 @@ export default function NewPatientForm() {
       >
         back
       </button>
-      <Form method="post">
+      <Form className="m-1 border border-slate-400 p-2" method="post">
         <div>
           <label>First name</label>
           <input
@@ -57,7 +57,9 @@ export default function NewPatientForm() {
             type="tel"
           />
         </div>
-        <button type="submit">Add</button>
+        <button className="rounded bg-blue-600 px-2 text-white" type="submit">
+          Add
+        </button>
       </Form>
     </>
   );

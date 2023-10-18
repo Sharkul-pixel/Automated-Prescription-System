@@ -6,9 +6,11 @@ export default function Root() {
       <div className="flex min-h-screen">
         <aside className="w-1/4 border-r-2">sidebar</aside>
         <div className="w-3/4">
-          <button className="m-2 border bg-slate-500 p-1 text-white">
-            <Link to={`/patients/new`}>add new patient</Link>
-          </button>
+          <Link to={`/patients/new`}>
+            <button className="m-2 rounded-lg border border-[1.5px] bg-[#4a9bff] px-5 py-1.5 text-white hover:bg-[#2989ff]">
+              New patient
+            </button>
+          </Link>
           <hr />
           <Outlet />
         </div>
