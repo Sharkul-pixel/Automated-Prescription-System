@@ -8,10 +8,8 @@ import {
 } from "react-router-dom";
 
 import Root from "./routes/Root";
-import Patient, { loader as patientLoader } from "./routes/Patient.jsx";
-import PatientList, {
-  loader as patientListLoader,
-} from "./routes/PatientList.jsx";
+import Patient, { loader as patientLoader } from "./routes/Patient";
+import PatientList, { loader as patientListLoader } from "./routes/PatientList";
 import NewPatientForm from "./routes/NewPatientForm";
 import "./index.css";
 
