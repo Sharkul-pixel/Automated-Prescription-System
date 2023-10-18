@@ -1,10 +1,21 @@
-import { Form } from "react-router-dom";
+import { redirect, Form } from "react-router-dom";
 
 export async function action({ request, params }) {
-  console.log("NewPatientForm action called");
-  console.log(request);
-  console.log(params);
-  return null;
+  const formData = await request.formData();
+  const entries = Object.fromEntries(formData);
+
+  const patient = {
+    id: crypto.randomUUID(),
+    firstName: entries.firstName,
+    lastName: entries.lastName,
+    phoneNumber: entries.phoneNumber,
+  };
+
+  let patients = JSON.parse(localStorage.getItem("patients")) ?? [];
+  patients.push(patient);
+  localStorage.setItem("patients", JSON.stringify(patients));
+
+  return redirect(`/`);
 }
 
 export default function NewPatientForm() {
@@ -13,15 +24,27 @@ export default function NewPatientForm() {
       <Form method="post">
         <div>
           <label>First name</label>
-          <input className="border border-slate-400" type="text" />
+          <input
+            name="firstName"
+            className="border border-slate-400"
+            type="text"
+          />
         </div>
         <div>
           <label>Last name</label>
-          <input className="border border-slate-400" type="text" />
+          <input
+            name="lastName"
+            className="border border-slate-400"
+            type="text"
+          />
         </div>
         <div>
           <label>Phone number</label>
-          <input className="border border-slate-400" type="tel" />
+          <input
+            name="phoneNumber"
+            className="border border-slate-400"
+            type="tel"
+          />
         </div>
         <button type="submit">Add</button>
       </Form>
