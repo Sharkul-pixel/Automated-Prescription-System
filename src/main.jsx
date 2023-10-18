@@ -12,6 +12,7 @@ import Patient, { loader as patientLoader } from "./routes/Patient.jsx";
 import PatientList, {
   loader as patientListLoader,
 } from "./routes/PatientList.jsx";
+import NewPatientForm from "./routes/NewPatientForm";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
         element={<Patient />}
         loader={patientLoader}
       ></Route>
+      <Route path="/patients/new" element={<NewPatientForm />}></Route>
     </Route>,
   ),
 );
