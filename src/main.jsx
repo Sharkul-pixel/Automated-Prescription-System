@@ -10,7 +10,9 @@ import {
 import Root from "./routes/Root";
 import Patient, { loader as patientLoader } from "./routes/Patient";
 import PatientList, { loader as patientListLoader } from "./routes/PatientList";
-import NewPatientForm from "./routes/NewPatientForm";
+import NewPatientForm, {
+  action as newPatientFormAction,
+} from "./routes/NewPatientForm";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -22,7 +24,11 @@ const router = createBrowserRouter(
         element={<Patient />}
         loader={patientLoader}
       ></Route>
-      <Route path="/patients/new" element={<NewPatientForm />}></Route>
+      <Route
+        path="/patients/new"
+        element={<NewPatientForm />}
+        action={newPatientFormAction}
+      ></Route>
     </Route>,
   ),
 );

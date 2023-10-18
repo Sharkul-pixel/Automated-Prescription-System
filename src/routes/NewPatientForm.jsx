@@ -1,7 +1,16 @@
+import { Form } from "react-router-dom";
+
+export async function action({ request, params }) {
+  console.log("NewPatientForm action called");
+  console.log(request);
+  console.log(params);
+  return null;
+}
+
 export default function NewPatientForm() {
   return (
     <>
-      <form>
+      <Form method="post">
         <div>
           <label>First name</label>
           <input className="border border-slate-400" type="text" />
@@ -15,7 +24,7 @@ export default function NewPatientForm() {
           <input className="border border-slate-400" type="tel" />
         </div>
         <button type="submit">Add</button>
-      </form>
+      </Form>
     </>
   );
 }
