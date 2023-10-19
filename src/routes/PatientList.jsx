@@ -1,8 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 
 export async function loader() {
-  const patients = localStorage.getItem("patients");
-  return { patients: JSON.parse(patients) ?? [] };
+  const response = await fetch("http://localhost:3000/patients");
+  const json = await response.json();
+  return { patients: json };
 }
 
 export default function PatientList() {
