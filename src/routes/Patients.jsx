@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
-export default function Root() {
+export default function Patients() {
   return (
     <>
       <header className="flex border border-b-2 py-2">
