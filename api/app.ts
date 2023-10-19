@@ -14,6 +14,18 @@ app.get("/patients", async (req, res) => {
   return res.json(patients);
 });
 
+app.get("/patients/:patientId", async (req, res) => {
+  const patientId = req.params.patientId;
+
+  const patient = await prisma.patient.findUnique({
+    where: {
+      id: patientId,
+    },
+  });
+
+  return res.json(patient);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
