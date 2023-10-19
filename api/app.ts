@@ -8,10 +8,23 @@ const port = 3000;
 const prisma = new PrismaClient();
 
 app.use(cors());
+app.use(express.json());
 
 app.get("/patients", async (req, res) => {
   const patients = await prisma.patient.findMany();
   return res.json(patients);
+});
+
+app.post("/patients", async (req, res) => {
+  const patient = await prisma.patient.create({
+    data: {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNumber: req.body.phoneNumber,
+    },
+  });
+
+  return res.json(patient);
 });
 
 app.get("/patients/:patientId", async (req, res) => {
