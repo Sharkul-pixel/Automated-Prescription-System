@@ -1,10 +1,11 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 export async function loader({ params }) {
-  let patients = localStorage.getItem("patients") ?? [];
-  patients = JSON.parse(patients);
-  const patient = patients.find((patient) => patient.id === params.patientId);
-  return { patient };
+  const response = await fetch(
+    `http://localhost:3000/patients/${params.patientId}`,
+  );
+  const json = await response.json();
+  return { patient: json };
 }
 
 export default function Patient() {
