@@ -4,18 +4,15 @@ export async function action({ request, params }) {
   const formData = await request.formData();
   const entries = Object.fromEntries(formData);
 
-  const patient = {
-    id: crypto.randomUUID(),
-    firstName: entries.firstName,
-    lastName: entries.lastName,
-    phoneNumber: entries.phoneNumber,
-  };
+  await fetch("http://localhost:3000/patients", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(entries),
+  });
 
-  let patients = JSON.parse(localStorage.getItem("patients")) ?? [];
-  patients.push(patient);
-  localStorage.setItem("patients", JSON.stringify(patients));
-
-  return redirect(`/`);
+  return redirect(`/patients`);
 }
 
 export default function NewPatientForm() {
