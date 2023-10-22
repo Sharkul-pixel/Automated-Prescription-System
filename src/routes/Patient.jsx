@@ -19,7 +19,10 @@ export async function action({ request, params }) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(entries),
+    body: JSON.stringify({
+      ...entries,
+      patientId: params.patientId,
+    }),
   });
 
   return redirect(`/patients/${params.patientId}`);
