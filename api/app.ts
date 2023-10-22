@@ -1,7 +1,12 @@
 import cors from "cors";
+import "dotenv/config";
 import express from "express";
 
 import { PrismaClient } from "@prisma/client";
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require("twilio")(accountSid, authToken);
 
 const app = express();
 const port = 3000;
@@ -37,6 +42,25 @@ app.get("/patients/:patientId", async (req, res) => {
   });
 
   return res.json(patient);
+});
+
+app.post("/messages", async (req, res) => {
+  const message = client.messages
+    .create({
+      from: process.env.FROM_NUMBER,
+      to: process.env.TO_NUMBER,
+      body: req.body.body,
+    })
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  console.log(message);
+
+  res.json({ status: 200 });
 });
 
 app.listen(port, () => {
