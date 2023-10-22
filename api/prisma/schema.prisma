@@ -11,9 +11,18 @@ datasource db {
 }
 
 model Patient {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   firstName   String
   lastName    String
   phoneNumber String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  messages    Message[]
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  body      String
+  createdAt DateTime @default(now())
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  patientId String
 }
