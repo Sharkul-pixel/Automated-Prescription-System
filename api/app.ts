@@ -60,6 +60,17 @@ app.post("/messages", async (req, res) => {
   //     console.log(err);
   //   });
 
+  await prisma.message.create({
+    data: {
+      body: req.body.body,
+      patient: {
+        connect: {
+          id: req.body.patientId,
+        },
+      },
+    },
+  });
+
   // console.log(message);
 
   res.json({ status: 200 });
