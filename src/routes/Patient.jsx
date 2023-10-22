@@ -46,9 +46,20 @@ export default function Patient() {
         </h1>
         <span>Phone number: {patient.phoneNumber}</span>
       </div>
-      <Form className="mt-5" method="post">
-        <input name="body" className="border border-2" type="text" />
-        <button className="border border-2" type="submit">
+      <Form className="mx-3 mt-5" method="post">
+        <div>
+          <textarea
+            className="rounded border border-2 border-slate-300 p-1 px-2"
+            name="body"
+            cols="30"
+            rows="3"
+            placeholder="Enter a message here"
+          ></textarea>
+        </div>
+        <button
+          className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
+          type="submit"
+        >
           Send
         </button>
       </Form>
