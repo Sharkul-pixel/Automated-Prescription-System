@@ -45,20 +45,22 @@ app.get("/patients/:patientId", async (req, res) => {
 });
 
 app.post("/messages", async (req, res) => {
-  const message = client.messages
-    .create({
-      from: process.env.FROM_NUMBER,
-      to: process.env.TO_NUMBER,
-      body: req.body.body,
-    })
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  console.log(req);
 
-  console.log(message);
+  // const message = client.messages
+  //   .create({
+  //     from: process.env.FROM_NUMBER,
+  //     to: process.env.TO_NUMBER,
+  //     body: req.body.body,
+  //   })
+  //   .then((result) => {
+  //     console.log(result);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+
+  // console.log(message);
 
   res.json({ status: 200 });
 });
