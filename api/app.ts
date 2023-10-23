@@ -16,7 +16,16 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/patients", async (req, res) => {
-  const patients = await prisma.patient.findMany();
+  const q = (req.query.q as string) ?? "";
+
+  const patients = await prisma.patient.findMany({
+    where: {
+      firstName: {
+        contains: q,
+      },
+    },
+  });
+
   return res.json(patients);
 });
 
