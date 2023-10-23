@@ -12,7 +12,7 @@ export default function Patients() {
   return (
     <div>
       <div className="h-15 flex items-center">
-        <div className="grow">
+        <div className="w-1/3">
           <form method="get" className="">
             <input
               className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-1.5"
