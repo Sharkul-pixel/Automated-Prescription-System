@@ -7,21 +7,25 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Patients from "./routes/Patients";
+import Patients, { loader as patientsLoader } from "./routes/Patients";
 import Patient, {
   loader as patientLoader,
   action as patientAction,
 } from "./routes/Patient";
-import PatientList, { loader as patientListLoader } from "./routes/PatientList";
 import NewPatientForm, {
   action as newPatientFormAction,
 } from "./routes/NewPatientForm";
+import HeaderAndSidebar from "./routes/HeaderAndSidebar";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/patients" element={<Patients />}>
-      <Route index element={<PatientList />} loader={patientListLoader}></Route>
+    <Route path="/" element={<HeaderAndSidebar />}>
+      <Route
+        path="/patients"
+        element={<Patients />}
+        loader={patientsLoader}
+      ></Route>
       <Route
         path="/patients/:patientId"
         element={<Patient />}
