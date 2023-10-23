@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, Form } from "react-router-dom";
 
 export async function loader() {
   const response = await fetch("http://localhost:3000/patients");
@@ -13,15 +13,14 @@ export default function Patients() {
     <div>
       <div className="h-15 flex items-center">
         <div className="w-1/3">
-          <form method="get" className="">
+          <Form method="get">
             <input
               className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-1.5"
-              type="text"
-              name=""
-              id=""
+              type="search"
+              name="q"
               placeholder="Search"
             />
-          </form>
+          </Form>
         </div>
         <div>
           <Link to={`/patients/new`}>
