@@ -16,7 +16,7 @@ import NewPatientForm, {
   action as newPatientFormAction,
 } from "./routes/NewPatientForm";
 import HeaderAndSidebar from "./routes/HeaderAndSidebar";
-import Messages from "./Messages";
+import Messages from "./routes/Messages";
 import "./index.css";
 
 const router = createBrowserRouter(
