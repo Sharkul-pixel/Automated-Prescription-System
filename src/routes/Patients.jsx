@@ -1,8 +1,12 @@
 import { Link, useLoaderData, Form } from "react-router-dom";
 
-export async function loader() {
-  const response = await fetch("http://localhost:3000/patients");
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q") ?? "";
+
+  const response = await fetch(`http://localhost:3000/patients?q=${q}`);
   const json = await response.json();
+
   return { patients: json };
 }
 
