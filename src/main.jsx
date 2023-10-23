@@ -16,7 +16,9 @@ import NewPatientForm, {
   action as newPatientFormAction,
 } from "./routes/NewPatientForm";
 import HeaderAndSidebar from "./routes/HeaderAndSidebar";
-import Messages from "./routes/Messages";
+import Messages,{
+ loader as MessageLoader,
+} from "./routes/Messages";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -38,7 +40,11 @@ const router = createBrowserRouter(
         element={<NewPatientForm />}
         action={newPatientFormAction}
       ></Route>
-      <Route path="/messages" element={<Messages />}></Route>
+      <Route
+        path="/messages" 
+        element={<Messages />}
+        loader={MessageLoader}
+      ></Route>
     </Route>,
   ),
 );
