@@ -11,25 +11,40 @@ export default function Patients() {
 
   return (
     <div>
-      <Link to={`/patients/new`}>
-        <button className="m-2 flex items-center rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-1.5 text-white hover:bg-[#2989ff]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="mr-1 h-5 w-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
+      <div className="h-15 flex items-center">
+        <div className="grow">
+          <form method="get" className="">
+            <input
+              className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-1.5"
+              type="text"
+              name=""
+              id=""
+              placeholder="Search"
             />
-          </svg>
-          <span>Add patient</span>
-        </button>
-      </Link>
+          </form>
+        </div>
+        <div>
+          <Link to={`/patients/new`}>
+            <button className="m-2 flex items-center rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-1.5 text-white hover:bg-[#2989ff]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="mr-1 h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+              <span>Add patient</span>
+            </button>
+          </Link>
+        </div>
+      </div>
       <div className="flex">
         <div className="w-1/12 border border-slate-300 p-2 px-3"></div>
         <div className="w-1/6 border border-slate-300 p-2 px-3">First Name</div>
