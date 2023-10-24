@@ -4,8 +4,14 @@ export async function loader({ params }) {
   const response = await fetch(
     `http://localhost:3000/patients/${params.patientId}`,
   );
-  const json = await response.json();
-  return { patient: json };
+  const patient = await response.json();
+
+  const response2 = await fetch(
+    `http://localhost:3000/patients/${params.patientId}/messages`,
+  );
+  const messages = await response2.json();
+
+  return { patient, messages };
 }
 
 export async function action({ request, params }) {
@@ -29,7 +35,7 @@ export async function action({ request, params }) {
 }
 
 export default function Patient() {
-  const { patient } = useLoaderData();
+  const { patient, messages } = useLoaderData();
   const navigate = useNavigate();
 
   return (
@@ -49,23 +55,30 @@ export default function Patient() {
         </h1>
         <span>Phone number: {patient.phoneNumber}</span>
       </div>
-      <Form className="mx-3 mt-5" method="post">
-        <div>
-          <textarea
-            className="rounded border border-2 border-slate-300 p-1 px-2"
-            name="body"
-            cols="30"
-            rows="3"
-            placeholder="Enter a message here"
-          ></textarea>
+      <div className="flex">
+        <Form className="mx-3 mt-5" method="post">
+          <div>
+            <textarea
+              className="rounded border border-2 border-slate-300 p-1 px-2"
+              name="body"
+              cols="30"
+              rows="3"
+              placeholder="Enter a message here"
+            ></textarea>
+          </div>
+          <button
+            className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
+            type="submit"
+          >
+            Send
+          </button>
+        </Form>
+        <div className="m-2 mt-5 grow rounded border border-slate-300">
+          {messages.map((m) => {
+            return <div key={m.id}>{m.body}</div>;
+          })}
         </div>
-        <button
-          className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
-          type="submit"
-        >
-          Send
-        </button>
-      </Form>
+      </div>
     </>
   );
 }
