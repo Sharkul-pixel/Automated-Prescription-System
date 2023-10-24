@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLoaderData, Form } from "react-router-dom";
 
 export async function loader({ request }) {
@@ -13,6 +14,10 @@ export async function loader({ request }) {
 export default function Patients() {
   const { patients, q } = useLoaderData();
 
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
+
   return (
     <div>
       <div className="h-15 flex items-center">
@@ -22,6 +27,7 @@ export default function Patients() {
               className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-1.5"
               type="search"
               name="q"
+              id="q"
               placeholder="Search"
               defaultValue={q}
             />
