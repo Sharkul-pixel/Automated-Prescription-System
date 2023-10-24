@@ -7,11 +7,11 @@ export async function loader({ request }) {
   const response = await fetch(`http://localhost:3000/patients?q=${q}`);
   const json = await response.json();
 
-  return { patients: json };
+  return { patients: json, q };
 }
 
 export default function Patients() {
-  const { patients } = useLoaderData();
+  const { patients, q } = useLoaderData();
 
   return (
     <div>
@@ -23,6 +23,7 @@ export default function Patients() {
               type="search"
               name="q"
               placeholder="Search"
+              defaultValue={q}
             />
           </Form>
         </div>
