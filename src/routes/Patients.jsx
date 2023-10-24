@@ -32,7 +32,10 @@ export default function Patients() {
               placeholder="Search"
               defaultValue={q}
               onChange={(event) => {
-                submit(event.currentTarget.form);
+                const isFirstSearch = q == null;
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
               }}
             />
           </Form>
