@@ -55,13 +55,10 @@ app.get("/patients/:patientId", async (req, res) => {
 
 app.get("/messages", async (req, res) => {
   const messages = await prisma.message.findMany();
-
   return res.json(messages);
 });
 
 app.post("/messages", async (req, res) => {
-  
-
   // const message = client.messages
   //   .create({
   //     from: process.env.FROM_NUMBER,
@@ -89,6 +86,18 @@ app.post("/messages", async (req, res) => {
   // console.log(message);
 
   res.json({ status: 200 });
+});
+
+app.get("/patients/:patientId/messages", async (req, res) => {
+  const patientId = req.params.patientId;
+
+  const patientMessages = await prisma.message.findMany({
+    where: {
+      patientId: patientId,
+    },
+  });
+
+  return res.json(patientMessages);
 });
 
 app.listen(port, () => {
