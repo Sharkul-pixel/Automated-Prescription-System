@@ -17,7 +17,9 @@ import NewPatientForm, {
 } from "./routes/NewPatientForm";
 import HeaderAndSidebar from "./routes/HeaderAndSidebar";
 import Messages, { loader as MessageLoader } from "./routes/Messages";
-import EditPatientForm from "./routes/EditPatientForm";
+import EditPatientForm, {
+  loader as editPatientFormLoader,
+} from "./routes/EditPatientForm";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -37,6 +39,7 @@ const router = createBrowserRouter(
       <Route
         path="/patients/:patientId/edit"
         element={<EditPatientForm />}
+        loader={editPatientFormLoader}
       ></Route>
       <Route
         path="/patients/new"
