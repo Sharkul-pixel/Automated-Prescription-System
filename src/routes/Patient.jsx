@@ -1,4 +1,10 @@
-import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
+import {
+  Form,
+  Link,
+  redirect,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 
 export async function loader({ params }) {
   const response = await fetch(
@@ -40,20 +46,28 @@ export default function Patient() {
 
   return (
     <>
-      <div key={patient.id}>
-        <button
-          className="m-1 bg-slate-500 px-2 text-white"
-          type="button"
-          onClick={() => {
-            navigate(-1);
-          }}
+      <button
+        className="m-1 bg-slate-500 px-2 text-white"
+        type="button"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        back
+      </button>
+      <div key={patient.id} className="flex">
+        <div>
+          <h1 className="text-3xl">
+            Name: {patient.firstName} {patient.lastName}
+          </h1>
+          <span>Phone number: {patient.phoneNumber}</span>
+        </div>
+        <Link
+          to={`/patients/${patient.id}/edit`}
+          className="mx-3 mt-3 h-fit w-fit rounded border border-slate-500 px-4 py-1"
         >
-          back
-        </button>
-        <h1 className="text-3xl">
-          Name: {patient.firstName} {patient.lastName}
-        </h1>
-        <span>Phone number: {patient.phoneNumber}</span>
+          Edit
+        </Link>
       </div>
       <div className="flex">
         <Form className="mx-3 mt-5" method="post">
