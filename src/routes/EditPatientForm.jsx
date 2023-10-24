@@ -22,7 +22,7 @@ export default function EditPatientForm() {
             className="w-2/3 border"
             type="text"
             name="firstName"
-            value={patient.firstName}
+            defaultValue={patient.firstName}
           />
         </div>
 
@@ -32,7 +32,7 @@ export default function EditPatientForm() {
             className="w-2/3 border"
             type="text"
             name="lastName"
-            value={patient.lastName}
+            defaultValue={patient.lastName}
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function EditPatientForm() {
             className="w-2/3 border"
             type="tel"
             name="phoneNumber"
-            value={patient.phoneNumber}
+            defaultValue={patient.phoneNumber}
           />
         </div>
 
