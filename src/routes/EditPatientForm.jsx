@@ -1,4 +1,4 @@
-import { useNavigate, useLoaderData, Form } from "react-router-dom";
+import { useNavigate, useLoaderData, Form, redirect } from "react-router-dom";
 
 export async function loader({ params }) {
   const response = await fetch(
@@ -7,6 +7,21 @@ export async function loader({ params }) {
   const patient = await response.json();
 
   return { patient };
+}
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const entries = Object.fromEntries(formData);
+
+  await fetch(`http://localhost:3000/patients/${params.patientId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(entries),
+  });
+
+  return redirect(`/patients/${params.patientId}`);
 }
 
 export default function EditPatientForm() {

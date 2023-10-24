@@ -19,6 +19,7 @@ import HeaderAndSidebar from "./routes/HeaderAndSidebar";
 import Messages, { loader as MessageLoader } from "./routes/Messages";
 import EditPatientForm, {
   loader as editPatientFormLoader,
+  action as editPatientFormAction,
 } from "./routes/EditPatientForm";
 import "./index.css";
 
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
         path="/patients/:patientId/edit"
         element={<EditPatientForm />}
         loader={editPatientFormLoader}
+        action={editPatientFormAction}
       ></Route>
       <Route
         path="/patients/new"
