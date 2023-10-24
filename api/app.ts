@@ -53,6 +53,21 @@ app.get("/patients/:patientId", async (req, res) => {
   return res.json(patient);
 });
 
+app.patch("/patients/:patientId", async (req, res) => {
+  const patientId = req.params.patientId;
+
+  await prisma.patient.update({
+    where: {
+      id: patientId,
+    },
+    data: {
+      ...req.body,
+    },
+  });
+
+  return res.status(200).send();
+});
+
 app.get("/messages", async (req, res) => {
   const messages = await prisma.message.findMany();
   return res.json(messages);
