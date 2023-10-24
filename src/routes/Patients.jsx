@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useLoaderData, Form } from "react-router-dom";
+import { Link, useLoaderData, useSubmit, Form } from "react-router-dom";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -13,6 +13,7 @@ export async function loader({ request }) {
 
 export default function Patients() {
   const { patients, q } = useLoaderData();
+  const submit = useSubmit();
 
   useEffect(() => {
     document.getElementById("q").value = q;
@@ -30,6 +31,9 @@ export default function Patients() {
               id="q"
               placeholder="Search"
               defaultValue={q}
+              onChange={(event) => {
+                submit(event.currentTarget.form);
+              }}
             />
           </Form>
         </div>
