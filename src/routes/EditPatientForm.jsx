@@ -1,4 +1,4 @@
-import { useNavigate, useLoaderData } from "react-router-dom";
+import { useNavigate, useLoaderData, Form } from "react-router-dom";
 
 export async function loader({ params }) {
   const response = await fetch(
@@ -15,7 +15,7 @@ export default function EditPatientForm() {
 
   return (
     <>
-      <form method="post" className="w-1/2 border">
+      <Form method="patch" className="w-1/2 border">
         <div className="flex w-full border">
           <label className="w-1/3">First name</label>
           <input
@@ -58,7 +58,7 @@ export default function EditPatientForm() {
         >
           Cancel
         </button>
-      </form>
+      </Form>
     </>
   );
 }
