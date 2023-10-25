@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { redirect, Form, useNavigate } from "react-router-dom";
 
 export async function action({ request, params }) {
@@ -11,6 +12,8 @@ export async function action({ request, params }) {
     },
     body: JSON.stringify(entries),
   });
+
+  toast.success("Added new patient!");
 
   return redirect(`/patients`);
 }

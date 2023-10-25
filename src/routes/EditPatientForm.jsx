@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { useNavigate, useLoaderData, Form, redirect } from "react-router-dom";
 
 export async function loader({ params }) {
@@ -20,6 +21,8 @@ export async function action({ request, params }) {
     },
     body: JSON.stringify(entries),
   });
+
+  toast.success("Updated patient's info!");
 
   return redirect(`/patients/${params.patientId}`);
 }
