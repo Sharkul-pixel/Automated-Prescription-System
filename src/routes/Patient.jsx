@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import {
   Form,
   Link,
@@ -36,6 +37,8 @@ export async function action({ request, params }) {
       patientId: params.patientId,
     }),
   });
+
+  toast.success("Message sent!");
 
   return redirect(`/patients/${params.patientId}`);
 }
