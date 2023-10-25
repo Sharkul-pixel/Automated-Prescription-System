@@ -1,8 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 export default function HeaderAndSidebar() {
   return (
     <>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            boxShadow: "unset",
+            border: "1px solid gray",
+          },
+        }}
+      />
       <header className="flex border border-b-2 py-2">
         <div className="grow">header</div>
         <div className="mr-2">&lt;header element 1&gt;</div>
