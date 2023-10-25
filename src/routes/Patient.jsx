@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import toast from "react-hot-toast";
 import {
   Form,
@@ -47,6 +48,8 @@ export default function Patient() {
   const { patient, messages } = useLoaderData();
   const navigate = useNavigate();
 
+  const textareaRef = useRef();
+
   return (
     <>
       <button
@@ -73,23 +76,36 @@ export default function Patient() {
         </Link>
       </div>
       <div className="flex">
-        <Form className="mx-3 mt-5" method="post">
-          <div>
-            <textarea
-              className="rounded border border-2 border-slate-300 p-1 px-2"
-              name="body"
-              cols="30"
-              rows="3"
-              placeholder="Enter a message here"
-            ></textarea>
-          </div>
-          <button
-            className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
-            type="submit"
-          >
-            Send
-          </button>
-        </Form>
+        <div>
+          <Form className="mx-3 mt-5" method="post">
+            <div className="flex w-full flex-col">
+              <button
+                className="mb-2 w-fit rounded border border-slate-500 px-3 py-1"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  textareaRef.current.value = `Hello, ${patient.firstName}. Your prescription is ready for pickup at _ Pharmacy. For any questions, please contact us at _.`;
+                }}
+              >
+                Fill
+              </button>
+              <textarea
+                ref={textareaRef}
+                className="rounded border border-2 border-slate-300 p-1 px-2"
+                name="body"
+                cols="30"
+                rows="3"
+                placeholder="Enter a message here"
+              ></textarea>
+            </div>
+            <button
+              className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
+              type="submit"
+            >
+              Send
+            </button>
+          </Form>
+        </div>
         <div className="m-2 mt-5 grow rounded border border-slate-300">
           {messages.map((m) => {
             return <div key={m.id}>{m.body}</div>;
