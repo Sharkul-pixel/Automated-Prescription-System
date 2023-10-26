@@ -63,12 +63,13 @@ export default function Patients() {
         </div>
       </div>
       <div className="flex">
-        <div className="w-1/12 border border-slate-300 p-2 px-3"></div>
-        <div className="w-1/6 border border-slate-300 p-2 px-3">First Name</div>
-        <div className="w-1/6 border border-slate-300 p-2 px-3">Last Name</div>
-        <div className="w-1/6 border border-slate-300 p-2 px-3">
+        <div className="w-1/12 border border-slate-300 p-2 px-5"></div>
+        <div className="w-1/4 border border-slate-300 p-2 px-5">First Name</div>
+        <div className="w-1/4 border border-slate-300 p-2 px-5">Last Name</div>
+        <div className="w-1/4 border border-slate-300 p-2 px-5">
           Phone Number
         </div>
+        <div className="grow border border-slate-300 p-2 px-4"></div>
       </div>
       {patients.map((patient) => {
         return (
@@ -77,10 +78,10 @@ export default function Patients() {
               className="flex cursor-pointer border border-slate-300 py-2 hover:bg-blue-50"
               key={patient.id}
             >
-              <div className="w-1/12 px-3"></div>
-              <div className="w-1/6 px-3">{patient.firstName}</div>
-              <div className="w-1/6 px-3">{patient.lastName}</div>
-              <div className="w-1/6 px-3">{patient.phoneNumber}</div>
+              <div className="w-1/12 px-5"></div>
+              <div className="w-1/4 px-5">{patient.firstName}</div>
+              <div className="w-1/4 px-5">{patient.lastName}</div>
+              <div className="w-1/4 px-5">{patient.phoneNumber}</div>
             </div>
           </Link>
         );
