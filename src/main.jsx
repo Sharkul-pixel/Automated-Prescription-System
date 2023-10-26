@@ -21,6 +21,7 @@ import EditPatientForm, {
   loader as editPatientFormLoader,
   action as editPatientFormAction,
 } from "./routes/EditPatientForm";
+import Settings from "./routes/Settings";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
         element={<Messages />}
         loader={MessageLoader}
       ></Route>
+      <Route path="/settings" element={<Settings />}></Route>
     </Route>,
   ),
 );
