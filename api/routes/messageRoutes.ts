@@ -11,7 +11,13 @@ const router = express.Router();
 const prisma = new PrismaClient();
 
 router.get("/", async (req, res) => {
-  const messages = await prisma.message.findMany();
+  const includeQuery = (req.query.include as string) ?? "";
+
+  const messages = await prisma.message.findMany({
+    include: {
+      patient: includeQuery === "patient",
+    },
+  });
   return res.json(messages);
 });
 
