@@ -13,10 +13,28 @@ export default function Messages() {
   const { messages } = useLoaderData();
   return (
     <div>
+      <div className="mb-[56px]">{/* whitespace */}</div>
+      <div className="flex">
+        <div className="w-1/4 border border-slate-300 p-2 px-3">Timestamp</div>
+        <div className="w-1/6 border border-slate-300 p-2 px-3">
+          Patient Name
+        </div>
+        <div className="w-1/5 border border-slate-300 p-2 px-3">
+          Patient Phone Number
+        </div>
+        <div className="w-1/3 border border-slate-300 p-2 px-3">Message</div>
+        <div className="grow border border-slate-300 p-2 px-3"></div>
+      </div>
       {messages.map((message) => {
         return (
-          <div key={message.id}>
-            <div>{message.body}</div>
+          <div className="flex border border-slate-300 py-2" key={message.id}>
+            <div className="w-1/4 px-3">{message.createdAt}</div>
+            <div className="w-1/6 px-3">
+              {message.patient.firstName + " " + message.patient.lastName}
+            </div>
+            <div className="w-1/5 px-3">{message.patient.phoneNumber}</div>
+            <div className="w-1/3 px-3">{message.body}</div>
+            <div></div>
           </div>
         );
       })}
