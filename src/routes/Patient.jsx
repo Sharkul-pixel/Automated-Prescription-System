@@ -107,8 +107,21 @@ export default function Patient() {
           </Form>
         </div>
         <div className="m-2 mt-5 grow rounded border border-slate-300">
-          {messages.map((m) => {
-            return <div key={m.id}>{m.body}</div>;
+          <div className="flex">
+            <div className="w-1/2 border border-slate-300 p-2 px-3">
+              Timestamp
+            </div>
+            <div className="w-full border border-slate-300 p-2 px-3">
+              Message
+            </div>
+          </div>
+          {messages.map((message) => {
+            return (
+              <div key={message.id} className="flex border border-slate-300">
+                <div className="w-1/2 px-3 text-sm">{message.createdAt}</div>
+                <div className="w-full px-3">{message.body}</div>
+              </div>
+            );
           })}
         </div>
       </div>
