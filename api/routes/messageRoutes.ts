@@ -12,6 +12,9 @@ const prisma = new PrismaClient();
 
 router.get("/", async (req, res) => {
   const includeQuery = (req.query.include as string) ?? "";
+  const page = Number(req.query.page) ?? 1;
+
+  const PAGE_SIZE = 10;
 
   const messages = await prisma.message.findMany({
     include: {
@@ -20,6 +23,8 @@ router.get("/", async (req, res) => {
     orderBy: {
       createdAt: "desc",
     },
+    skip: (page - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
   });
 
   return res.json(messages);
