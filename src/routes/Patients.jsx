@@ -21,11 +21,17 @@ export default function Patients() {
 
   return (
     <div>
-      <div className="h-15 flex items-center">
+      <div
+        className="flex h-[4.5rem] items-center"
+        style={{
+          backgroundColor: "#ffffff",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+        }}
+      >
         <div className="w-1/3">
           <Form method="get">
             <input
-              className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-1.5"
+              className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-2"
               type="search"
               name="q"
               id="q"
@@ -42,7 +48,7 @@ export default function Patients() {
         </div>
         <div>
           <Link to={`/patients/new`}>
-            <button className="m-2 flex items-center rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-1.5 text-white hover:bg-[#2989ff]">
+            <button className="m-2 flex items-center rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-2 text-white hover:bg-[#2989ff]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
