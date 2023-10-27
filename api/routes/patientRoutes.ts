@@ -11,9 +11,18 @@ router.get("/", async (req, res) => {
 
   const patients = await prisma.patient.findMany({
     where: {
-      firstName: {
-        contains: q,
-      },
+      OR: [
+        {
+          firstName: {
+            contains: q,
+          },
+        },
+        {
+          lastName: {
+            contains: q,
+          },
+        },
+      ],
     },
   });
 
