@@ -17,7 +17,11 @@ router.get("/", async (req, res) => {
     include: {
       patient: includeQuery === "patient",
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
+
   return res.json(messages);
 });
 
