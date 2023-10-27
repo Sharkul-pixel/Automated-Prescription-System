@@ -1,10 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 
-export async function loader({ params }) {
+export async function loader({ request, params }) {
+  const url = new URL(request.url);
+  const page = url.searchParams.get("page") ?? "1";
+
+  const paramsObj = { include: "patient", page };
+  const searchParams = new URLSearchParams(paramsObj);
+
   console.log(params);
   const response = await fetch(
-    "http://localhost:3000/messages?include=patient",
+    `http://localhost:3000/messages?${searchParams}`,
   );
+
   const json = await response.json();
   return { messages: json };
 }
