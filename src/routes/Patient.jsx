@@ -52,31 +52,38 @@ export default function Patient() {
 
   return (
     <>
-      <button
-        className="m-1 bg-slate-500 px-2 text-white"
-        type="button"
-        onClick={() => {
-          navigate(-1);
+      <div
+        className="flex h-[4.5rem] items-center"
+        style={{
+          backgroundColor: "#ffffff",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
-      >
-        back
-      </button>
-      <div key={patient.id} className="flex">
-        <div>
-          <h1 className="text-3xl">
-            Name: {patient.firstName} {patient.lastName}
-          </h1>
-          <span>Phone number: {patient.phoneNumber}</span>
-        </div>
-        <Link
-          to={`/patients/${patient.id}/edit`}
-          className="mx-3 mt-3 h-fit w-fit rounded border border-slate-500 px-4 py-1"
-        >
-          Edit
-        </Link>
-      </div>
-      <div className="flex">
-        <div>
+      ></div>
+      <div className="mx-2 flex min-h-screen">
+        <div className="w-2/5">
+          <button
+            className="m-1 bg-slate-500 px-2 text-white"
+            type="button"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            back
+          </button>
+          <div className="flex">
+            <div>
+              <h1 className="text-2xl">
+                {patient.firstName} {patient.lastName}
+              </h1>
+              <span>Phone number: {patient.phoneNumber}</span>
+            </div>
+            <Link
+              to={`/patients/${patient.id}/edit`}
+              className="mx-3 mt-3 h-fit w-fit rounded border border-slate-500 px-4 py-1"
+            >
+              Edit
+            </Link>
+          </div>
           <Form className="mx-3 mt-5" method="post">
             <div className="flex w-full flex-col">
               <button
@@ -106,12 +113,12 @@ export default function Patient() {
             </button>
           </Form>
         </div>
-        <div className="m-2 mt-5 grow rounded border border-slate-300">
+        <div className="w-3/5 rounded border-slate-300">
           <div className="flex">
-            <div className="w-1/2 border border-slate-300 p-2 px-3">
+            <div className="w-1/2 border border-slate-300 px-3 py-2">
               Timestamp
             </div>
-            <div className="w-full border border-slate-300 p-2 px-3">
+            <div className="w-1/2 border border-slate-300 px-3 py-2">
               Message
             </div>
           </div>
@@ -119,7 +126,7 @@ export default function Patient() {
             return (
               <div key={message.id} className="flex border border-slate-300">
                 <div className="w-1/2 px-3 text-sm">{message.createdAt}</div>
-                <div className="w-full px-3">{message.body}</div>
+                <div className="w-1/2 px-3">{message.body}</div>
               </div>
             );
           })}
