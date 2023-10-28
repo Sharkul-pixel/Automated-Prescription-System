@@ -27,7 +27,10 @@ router.get("/", async (req, res) => {
     take: PAGE_SIZE,
   });
 
-  return res.json(messages);
+  const count = await prisma.message.count();
+  const numPages = Math.round(count / PAGE_SIZE);
+
+  return res.json({ messages, numPages });
 });
 
 router.post("/", async (req, res) => {
