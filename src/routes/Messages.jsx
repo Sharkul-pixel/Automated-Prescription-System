@@ -30,7 +30,15 @@ export default function Messages() {
           <span>of</span>
           <span>{numPages}</span>
         </div>
-        <Link to={`/messages?page=${page + 1}`}>Next</Link>
+        <Link
+          to={
+            page == numPages
+              ? `/messages?page=${numPages}`
+              : `/messages?page=${page + 1}`
+          }
+        >
+          Next
+        </Link>
       </div>
       <div className="mb-[56px]">{/* whitespace */}</div>
       <div className="flex">
