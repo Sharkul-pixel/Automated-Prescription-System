@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export async function loader({ request, params }) {
   const url = new URL(request.url);
-  const page = url.searchParams.get("page") ?? "1";
+  const page = Number(url.searchParams.get("page") ?? 1);
 
   const paramsObj = { include: "patient", page };
   const searchParams = new URLSearchParams(paramsObj);
@@ -13,13 +13,21 @@ export async function loader({ request, params }) {
   );
 
   const json = await response.json();
-  return { messages: json };
+  return { messages: json, page };
 }
 
 export default function Messages() {
-  const { messages } = useLoaderData();
+  const { messages, page } = useLoaderData();
+
   return (
     <div>
+      <div className="flex">
+        <Link to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}>
+          Previous
+        </Link>
+        <span className="border">{page}</span>
+        <Link to={`/messages?page=${page + 1}`}>Next</Link>
+      </div>
       <div className="mb-[56px]">{/* whitespace */}</div>
       <div className="flex">
         <div className="w-1/4 border border-slate-300 p-2 px-3">Timestamp</div>
