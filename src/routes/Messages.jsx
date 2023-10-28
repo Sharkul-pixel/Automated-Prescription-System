@@ -28,29 +28,64 @@ export default function Messages() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
       >
-        <div>
+        <div className="ml-1 flex w-fit rounded-lg border-2 border-slate-300 bg-white px-5 py-1.5">
           <Link
+            className={`rounded border border-slate-400 px-2 py-1 hover:bg-blue-50 ${
+              page === 1 &&
+              "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
+            }`}
             to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}
           >
-            Previous
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
           </Link>
-          <div className="flex">
-            <span className="border">{page}</span>
-            <span>of</span>
-            <span>{numPages}</span>
-          </div>
+          <span className="ml-5 w-10 rounded border border-slate-300 py-1 text-center">
+            {page}
+          </span>
+          <span className="mx-1 w-6 py-1 text-center">of</span>
+          <span className="mr-5 w-6 py-1 text-center text-slate-600">
+            {numPages}
+          </span>
           <Link
+            className={`rounded border border-slate-400 px-2 py-1 hover:bg-blue-50 ${
+              page === numPages &&
+              "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
+            }`}
             to={
               page == numPages
                 ? `/messages?page=${numPages}`
                 : `/messages?page=${page + 1}`
             }
           >
-            Next
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
           </Link>
         </div>
       </div>
-      {/* <div className="mb-[56px]">whitespace</div> */}
       <div className="flex">
         <div className="w-1/4 border border-slate-300 p-2 px-3">Timestamp</div>
         <div className="w-1/6 border border-slate-300 p-2 px-3">
