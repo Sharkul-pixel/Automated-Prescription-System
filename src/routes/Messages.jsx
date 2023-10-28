@@ -86,21 +86,27 @@ export default function Messages() {
           </Link>
         </div>
       </div>
-      <div className="flex">
-        <div className="w-1/4 border border-slate-300 p-2 px-3">Timestamp</div>
-        <div className="w-1/6 border border-slate-300 p-2 px-3">
+      <div className="flex font-semibold">
+        <div className="w-[30px] border-y border-r border-slate-400 p-2 px-3"></div>
+        <div className="w-1/5 border-y border-r border-slate-400 p-2 px-3">
+          Timestamp
+        </div>
+        <div className="w-1/6 border-y border-r border-slate-400 p-2 px-3">
           Patient Name
         </div>
-        <div className="w-1/5 border border-slate-300 p-2 px-3">
-          Patient Phone Number
+        <div className="w-1/5 border-y border-r border-slate-400 p-2 px-3">
+          Patient No.
         </div>
-        <div className="w-1/3 border border-slate-300 p-2 px-3">Message</div>
-        <div className="grow border border-slate-300 p-2 px-3"></div>
+        <div className="w-1/3 border-y border-r border-slate-400 p-2 px-3">
+          Message
+        </div>
+        <div className="grow border-y border-slate-400 p-2 px-3"></div>
       </div>
       {messages.map((message) => {
         return (
-          <div className="flex border border-slate-300 py-2" key={message.id}>
-            <div className="w-1/4 px-3">
+          <div className="flex border-b border-slate-300 py-2" key={message.id}>
+            <div className="w-[30px]"></div>
+            <div className="w-1/5 px-3">
               {new Date(message.createdAt).toLocaleDateString("en-US", {
                 hour: "2-digit",
                 minute: "2-digit",
