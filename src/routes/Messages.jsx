@@ -116,7 +116,12 @@ export default function Messages() {
               })}
             </div>
             <div className="w-1/6 px-3">
-              {message.patient.firstName + " " + message.patient.lastName}
+              <Link
+                className="text-[#4a9bff] hover:text-[#006ef7]"
+                to={`../patients/${message.patient.id}`}
+              >
+                {message.patient.firstName + " " + message.patient.lastName}
+              </Link>
             </div>
             <div className="w-1/5 px-3">{message.patient.phoneNumber}</div>
             <div className="w-1/3 px-3">{message.body}</div>
