@@ -21,26 +21,36 @@ export default function Messages() {
 
   return (
     <div>
-      <div className="flex">
-        <Link to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}>
-          Previous
-        </Link>
-        <div className="flex">
-          <span className="border">{page}</span>
-          <span>of</span>
-          <span>{numPages}</span>
+      <div
+        className="flex h-[4.5rem] items-center"
+        style={{
+          backgroundColor: "#ffffff",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+        }}
+      >
+        <div>
+          <Link
+            to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}
+          >
+            Previous
+          </Link>
+          <div className="flex">
+            <span className="border">{page}</span>
+            <span>of</span>
+            <span>{numPages}</span>
+          </div>
+          <Link
+            to={
+              page == numPages
+                ? `/messages?page=${numPages}`
+                : `/messages?page=${page + 1}`
+            }
+          >
+            Next
+          </Link>
         </div>
-        <Link
-          to={
-            page == numPages
-              ? `/messages?page=${numPages}`
-              : `/messages?page=${page + 1}`
-          }
-        >
-          Next
-        </Link>
       </div>
-      <div className="mb-[56px]">{/* whitespace */}</div>
+      {/* <div className="mb-[56px]">whitespace</div> */}
       <div className="flex">
         <div className="w-1/4 border border-slate-300 p-2 px-3">Timestamp</div>
         <div className="w-1/6 border border-slate-300 p-2 px-3">
