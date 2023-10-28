@@ -11,13 +11,13 @@ export async function loader({ request, params }) {
   const response = await fetch(
     `http://localhost:3000/messages?${searchParams}`,
   );
+  const { messages, numPages } = await response.json();
 
-  const json = await response.json();
-  return { messages: json, page };
+  return { messages, page, numPages };
 }
 
 export default function Messages() {
-  const { messages, page } = useLoaderData();
+  const { messages, page, numPages } = useLoaderData();
 
   return (
     <div>
@@ -25,7 +25,11 @@ export default function Messages() {
         <Link to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}>
           Previous
         </Link>
-        <span className="border">{page}</span>
+        <div className="flex">
+          <span className="border">{page}</span>
+          <span>of</span>
+          <span>{numPages}</span>
+        </div>
         <Link to={`/messages?page=${page + 1}`}>Next</Link>
       </div>
       <div className="mb-[56px]">{/* whitespace */}</div>
