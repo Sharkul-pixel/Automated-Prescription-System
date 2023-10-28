@@ -62,7 +62,7 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/messages`}
             className={({ isActive }) =>
-              `flex items-center border-y border-slate-300 px-3 py-5 hover:bg-slate-200 ${
+              `flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200 ${
                 isActive && "bg-[#dbebff] hover:bg-[#dbebff]"
               }`
             }
@@ -86,7 +86,7 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/settings`}
             className={({ isActive }) =>
-              `flex items-center border-y border-slate-300 px-3 py-5 hover:bg-slate-200 ${
+              `flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200 ${
                 isActive && "bg-[#dbebff] hover:bg-[#dbebff]"
               }`
             }
