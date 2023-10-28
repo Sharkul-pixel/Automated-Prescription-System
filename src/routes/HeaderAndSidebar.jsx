@@ -13,7 +13,7 @@ export default function HeaderAndSidebar() {
           },
         }}
       />
-      <header className="flex items-center border-b border-slate-300 px-3 py-3">
+      <header className="flex h-[8vh] items-center border-b border-slate-300 px-3 py-3">
         <div className="grow">RxReady</div>
         <div className="cursor-pointer text-slate-500">
           <svg
@@ -32,7 +32,7 @@ export default function HeaderAndSidebar() {
           </svg>
         </div>
       </header>
-      <div className="flex min-h-screen">
+      <div className="flex h-[92vh]">
         <aside className="flex w-1/4 flex-col border-r border-slate-300 bg-slate-100">
           <div className="ml-3 py-2 text-slate-500">Pharmacy name</div>
           <NavLink
@@ -112,8 +112,9 @@ export default function HeaderAndSidebar() {
             </svg>
             <span className="mx-1.5 text-lg">Settings</span>
           </NavLink>
+          <div className="grow"></div>
         </aside>
-        <div className="w-3/4">
+        <div className="w-3/4 overflow-auto">
           <Outlet />
         </div>
       </div>
