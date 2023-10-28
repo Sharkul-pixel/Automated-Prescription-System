@@ -33,12 +33,12 @@ export default function HeaderAndSidebar() {
         </div>
       </header>
       <div className="flex min-h-screen">
-        <aside className="w-1/4 bg-slate-100">
+        <aside className="w-1/4 border-r border-slate-300 bg-slate-100">
           <span>sidebar</span>
           <NavLink
             to={`/patients`}
             className={({ isActive }) =>
-              `item-center flex border border-slate-300 py-4 ${
+              `item-center flex border-y border-slate-300 py-4 ${
                 isActive && "bg-slate-200"
               }`
             }
@@ -62,7 +62,7 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/messages`}
             className={({ isActive }) =>
-              `item-center flex border border-slate-300 py-4 ${
+              `item-center flex border-b border-slate-300 py-4 ${
                 isActive && "bg-slate-200"
               }`
             }
@@ -86,7 +86,7 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/settings`}
             className={({ isActive }) =>
-              `item-center flex border border-slate-300 py-4 ${
+              `item-center flex border-b border-slate-300 py-4 ${
                 isActive && "bg-slate-200"
               }`
             }
