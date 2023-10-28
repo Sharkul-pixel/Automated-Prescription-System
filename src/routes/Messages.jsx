@@ -43,7 +43,15 @@ export default function Messages() {
       {messages.map((message) => {
         return (
           <div className="flex border border-slate-300 py-2" key={message.id}>
-            <div className="w-1/4 px-3">{message.createdAt}</div>
+            <div className="w-1/4 px-3">
+              {new Date(message.createdAt).toLocaleDateString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </div>
             <div className="w-1/6 px-3">
               {message.patient.firstName + " " + message.patient.lastName}
             </div>
