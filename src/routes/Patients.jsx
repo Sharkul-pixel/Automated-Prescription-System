@@ -31,7 +31,7 @@ export default function Patients() {
         <div className="w-1/3">
           <Form method="get">
             <input
-              className="mx-1 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-2"
+              className="mx-2 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-2"
               type="search"
               name="q"
               id="q"
@@ -46,7 +46,7 @@ export default function Patients() {
             />
           </Form>
         </div>
-        <div>
+        <div className="mx-2 w-fit">
           <Link to={`/patients/new`}>
             <button className="m-2 flex items-center rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-2 text-white hover:bg-[#2989ff]">
               <svg
@@ -68,20 +68,24 @@ export default function Patients() {
           </Link>
         </div>
       </div>
-      <div className="flex">
-        <div className="w-1/12 border border-slate-300 p-2 px-5"></div>
-        <div className="w-1/4 border border-slate-300 p-2 px-5">First Name</div>
-        <div className="w-1/4 border border-slate-300 p-2 px-5">Last Name</div>
-        <div className="w-1/4 border border-slate-300 p-2 px-5">
+      <div className="flex font-semibold">
+        <div className="w-1/12 border-y border-r border-slate-400 p-2 px-5"></div>
+        <div className="w-1/4 border-y border-r border-slate-400 p-2 px-5">
+          First Name
+        </div>
+        <div className="w-1/4 border-y border-r border-slate-400 p-2 px-5">
+          Last Name
+        </div>
+        <div className="w-1/4 border-y border-r border-slate-400 p-2 px-5">
           Phone Number
         </div>
-        <div className="grow border border-slate-300 p-2 px-4"></div>
+        <div className="grow border-y border-slate-400 p-2 px-4"></div>
       </div>
       {patients.map((patient) => {
         return (
           <Link key={patient.id} to={`/patients/${patient.id}`}>
             <div
-              className="flex cursor-pointer border border-slate-300 py-2 hover:bg-blue-50"
+              className="flex cursor-pointer border-b border-slate-300 py-2 hover:bg-slate-50"
               key={patient.id}
             >
               <div className="w-1/12 px-5"></div>
