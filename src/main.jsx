@@ -22,7 +22,6 @@ import EditPatientForm, {
   action as editPatientFormAction,
 } from "./routes/EditPatientForm";
 import Settings from "./routes/Settings";
-import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
