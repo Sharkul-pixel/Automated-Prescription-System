@@ -2,7 +2,7 @@ import { useRef } from "react";
 import toast from "react-hot-toast";
 import {
   Form,
-  Link,
+  Outlet,
   redirect,
   useLoaderData,
   useNavigate,
@@ -71,18 +71,7 @@ export default function Patient() {
             back
           </button>
           <div className="flex">
-            <div>
-              <h1 className="text-2xl">
-                {patient.firstName} {patient.lastName}
-              </h1>
-              <span>Phone number: {patient.phoneNumber}</span>
-            </div>
-            <Link
-              to={`/patients/${patient.id}/edit`}
-              className="mx-3 mt-3 h-fit w-fit rounded border border-slate-500 px-4 py-1"
-            >
-              Edit
-            </Link>
+            <Outlet />
           </div>
           <Form className="mx-3 mt-5" method="post">
             <div className="flex w-full flex-col">
