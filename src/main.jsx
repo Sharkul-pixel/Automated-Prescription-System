@@ -22,6 +22,7 @@ import EditPatientForm, {
   action as editPatientFormAction,
 } from "./routes/EditPatientForm";
 import Settings from "./routes/Settings";
+import PatientInfo, { loader as patientInfoLoader } from "./routes/PatientInfo";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,13 +37,19 @@ const router = createBrowserRouter(
         element={<Patient />}
         loader={patientLoader}
         action={patientAction}
-      ></Route>
-      <Route
-        path="/patients/:patientId/edit"
-        element={<EditPatientForm />}
-        loader={editPatientFormLoader}
-        action={editPatientFormAction}
-      ></Route>
+      >
+        <Route
+          index
+          element={<PatientInfo />}
+          loader={patientInfoLoader}
+        ></Route>
+        <Route
+          path="/patients/:patientId/edit"
+          element={<EditPatientForm />}
+          loader={editPatientFormLoader}
+          action={editPatientFormAction}
+        ></Route>
+      </Route>
       <Route
         path="/patients/new"
         element={<NewPatientForm />}
