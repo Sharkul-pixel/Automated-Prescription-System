@@ -78,11 +78,14 @@ export default function Patient() {
           </button>
         </div>
         <div className="flex">
-          <div className="flex w-2/5 flex-col border">
-            <div className="flex h-1/2 border">
+          <div className="flex w-2/5 flex-col">
+            <div className="h-1/2 border-r border-t border-slate-400 p-2">
               <Outlet />
             </div>
-            <Form className="h-1/2 border" method="post">
+            <Form
+              className="h-1/2 border-r border-t border-slate-400 p-2"
+              method="post"
+            >
               <div className="flex w-full flex-col">
                 <button
                   className="mb-2 w-fit rounded border border-slate-500 px-3 py-1"
@@ -111,12 +114,12 @@ export default function Patient() {
               </button>
             </Form>
           </div>
-          <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto">
+          <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto border-t border-slate-400">
             <div className="flex">
-              <div className="w-2/5 border-y border-r border-slate-400 p-2 px-3 font-semibold">
+              <div className="w-2/5 border-b border-r border-slate-400 p-2 px-3 font-semibold">
                 Timestamp
               </div>
-              <div className="w-3/5 border-y border-r border-slate-400 p-2 px-3 font-semibold">
+              <div className="w-3/5 border-b border-r border-slate-400 p-2 px-3 font-semibold">
                 Message
               </div>
             </div>
