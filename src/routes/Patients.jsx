@@ -1,5 +1,11 @@
 import { useEffect } from "react";
-import { Link, useLoaderData, useSubmit, Form } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useSubmit,
+  Form,
+  useLocation,
+} from "react-router-dom";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -13,6 +19,7 @@ export async function loader({ request }) {
 
 export default function Patients() {
   const { patients, q } = useLoaderData();
+  const location = useLocation();
   const submit = useSubmit();
 
   useEffect(() => {
@@ -83,7 +90,11 @@ export default function Patients() {
       </div>
       {patients.map((patient) => {
         return (
-          <Link key={patient.id} to={`/patients/${patient.id}`}>
+          <Link
+            key={patient.id}
+            to={`/patients/${patient.id}`}
+            state={{ returnUrl: location.pathname }}
+          >
             <div
               className="flex cursor-pointer border-b border-slate-300 py-2 hover:bg-slate-50"
               key={patient.id}

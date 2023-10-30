@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 export async function loader({ request, params }) {
   const url = new URL(request.url);
@@ -18,6 +18,7 @@ export async function loader({ request, params }) {
 
 export default function Messages() {
   const { messages, page, numPages } = useLoaderData();
+  const location = useLocation();
 
   return (
     <div>
@@ -119,6 +120,7 @@ export default function Messages() {
               <Link
                 className="text-[#4a9bff] hover:text-[#006ef7]"
                 to={`../patients/${message.patient.id}`}
+                state={{ returnUrl: location.pathname }}
               >
                 {message.patient.firstName + " " + message.patient.lastName}
               </Link>

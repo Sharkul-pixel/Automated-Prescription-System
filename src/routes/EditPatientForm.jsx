@@ -1,5 +1,11 @@
 import toast from "react-hot-toast";
-import { useNavigate, useLoaderData, Form, redirect } from "react-router-dom";
+import {
+  useNavigate,
+  useLoaderData,
+  Form,
+  redirect,
+  useLocation,
+} from "react-router-dom";
 
 export async function loader({ params }) {
   const response = await fetch(
@@ -14,22 +20,33 @@ export async function action({ request, params }) {
   const formData = await request.formData();
   const entries = Object.fromEntries(formData);
 
+  console.log(entries);
+
   await fetch(`http://localhost:3000/patients/${params.patientId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(entries),
+    body: JSON.stringify({
+      firstName: entries.firstName,
+      lastName: entries.lastName,
+      phoneNumber: entries.phoneNumber,
+    }),
   });
 
   toast.success("Updated patient's info!");
 
-  return redirect(`/patients/${params.patientId}`);
+  return redirect(
+    `/patients/${params.patientId}/?returnUrl=${entries.returnUrl}`,
+  );
 }
 
 export default function EditPatientForm() {
   const { patient } = useLoaderData();
+  const location = useLocation();
   const navigate = useNavigate();
+
+  console.log(location);
 
   return (
     <>
@@ -63,6 +80,12 @@ export default function EditPatientForm() {
             defaultValue={patient.phoneNumber}
           />
         </div>
+
+        <input
+          type="hidden"
+          name="returnUrl"
+          defaultValue={location.state?.returnUrl}
+        />
 
         <button className="m-1 bg-blue-500 px-2 text-white" type="submit">
           Save

@@ -5,7 +5,9 @@ import {
   Outlet,
   redirect,
   useLoaderData,
+  useLocation,
   useNavigate,
+  useSearchParams,
 } from "react-router-dom";
 
 export async function loader({ params }) {
@@ -46,9 +48,14 @@ export async function action({ request, params }) {
 
 export default function Patient() {
   const { patient, messages } = useLoaderData();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const navigate = useNavigate();
 
   const textareaRef = useRef();
+
+  console.log(searchParams);
 
   return (
     <>
@@ -65,7 +72,7 @@ export default function Patient() {
             className="m-1 bg-slate-500 px-2 text-white"
             type="button"
             onClick={() => {
-              navigate(-1);
+              navigate(searchParams.get("returnUrl") ?? -1);
             }}
           >
             back

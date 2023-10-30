@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 export async function loader({ params }) {
   const response = await fetch(
@@ -11,6 +11,7 @@ export async function loader({ params }) {
 
 export default function PatientInfo() {
   const { patient } = useLoaderData();
+  const location = useLocation();
 
   return (
     <>
@@ -23,6 +24,7 @@ export default function PatientInfo() {
       <Link
         to={`/patients/${patient.id}/edit`}
         className="mx-3 mt-3 h-fit w-fit rounded border border-slate-500 px-4 py-1"
+        state={{ returnUrl: location.state?.returnUrl }}
       >
         Edit
       </Link>
