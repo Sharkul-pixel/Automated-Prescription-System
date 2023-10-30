@@ -77,12 +77,12 @@ export default function Patient() {
             back
           </button>
         </div>
-        <div className="flex min-h-screen">
+        <div className="flex">
           <div className="flex w-2/5 flex-col border">
-            <div className="flex border">
+            <div className="flex h-1/2 border">
               <Outlet />
             </div>
-            <Form className="border" method="post">
+            <Form className="h-1/2 border" method="post">
               <div className="flex w-full flex-col">
                 <button
                   className="mb-2 w-fit rounded border border-slate-500 px-3 py-1"
@@ -111,7 +111,7 @@ export default function Patient() {
               </button>
             </Form>
           </div>
-          <div className="w-3/5 rounded border-slate-300">
+          <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto rounded border border-slate-300">
             <div className="flex">
               <div className="w-1/2 border border-slate-300 px-3 py-2">
                 Timestamp
