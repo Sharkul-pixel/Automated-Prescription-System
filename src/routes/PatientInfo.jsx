@@ -15,7 +15,7 @@ export default function PatientInfo() {
 
   return (
     <>
-      <div className="mx-1 mb-3 flex items-center">
+      <div className="mx-1 mb-4 flex items-center">
         <span className="grow font-semibold">Patient Details</span>
         <Link
           to={`/patients/${patient.id}/edit`}
