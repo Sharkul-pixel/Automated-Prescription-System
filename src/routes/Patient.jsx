@@ -65,22 +65,23 @@ export default function Patient() {
           backgroundColor: "#ffffff",
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
-      ></div>
-      <div className="mx-2 flex min-h-screen">
-        <div className="w-2/5">
-          <button
-            className="m-1 bg-slate-500 px-2 text-white"
-            type="button"
-            onClick={() => {
-              navigate(searchParams.get("returnUrl") ?? -1);
-            }}
-          >
-            back
-          </button>
-          <div className="flex">
+      >
+        <button
+          className="m-1 bg-slate-500 px-2 text-white"
+          type="button"
+          onClick={() => {
+            navigate(searchParams.get("returnUrl") ?? -1);
+          }}
+        >
+          back
+        </button>
+      </div>
+      <div className="flex min-h-screen">
+        <div className="flex w-2/5 flex-col border">
+          <div className="flex border">
             <Outlet />
           </div>
-          <Form className="mx-3 mt-5" method="post">
+          <Form className="border" method="post">
             <div className="flex w-full flex-col">
               <button
                 className="mb-2 w-fit rounded border border-slate-500 px-3 py-1"
