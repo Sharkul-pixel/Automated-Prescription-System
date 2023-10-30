@@ -63,7 +63,7 @@ export default function EditPatientForm() {
               name="firstName"
               className="w-full rounded border border-slate-400 p-2 py-1"
               type="text"
-              value={patient.firstName}
+              defaultValue={patient.firstName}
             />
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function EditPatientForm() {
               name="lastName"
               className="w-full rounded border border-slate-400 p-2 py-1"
               type="text"
-              value={patient.lastName}
+              defaultValue={patient.lastName}
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function EditPatientForm() {
               name="phoneNumber"
               className="w-full rounded border border-slate-400 p-2 py-1"
               type="tel"
-              value={patient.phoneNumber}
+              defaultValue={patient.phoneNumber}
             />
           </div>
         </div>
