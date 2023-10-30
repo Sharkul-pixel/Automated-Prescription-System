@@ -75,6 +75,9 @@ router.get("/:patientId/messages", async (req, res) => {
     where: {
       patientId: patientId,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 
   return res.json(patientMessages);
