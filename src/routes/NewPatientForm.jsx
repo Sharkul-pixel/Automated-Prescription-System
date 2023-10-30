@@ -23,15 +23,13 @@ export default function NewPatientForm() {
 
   return (
     <>
-      {/* <div className="mb-[56px]">whitespace</div> */}
       <div
-        className="flex h-[4.5rem] items-center border-b"
+        className="flex h-[4.5rem] items-center border-b border-slate-300"
         style={{
           backgroundColor: "#ffffff",
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
       ></div>
-      {/* <div className="border-t border-slate-400"></div> */}
       <Form className="ml-1 w-1/2 p-2" method="post">
         <h1 className="mb-4 text-2xl">Add a New Patient</h1>
         <div className="mb-4 flex items-center">
