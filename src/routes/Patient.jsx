@@ -111,20 +111,31 @@ export default function Patient() {
               </button>
             </Form>
           </div>
-          <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto rounded border border-slate-300">
+          <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto">
             <div className="flex">
-              <div className="w-1/2 border border-slate-300 px-3 py-2">
+              <div className="w-2/5 border-y border-r border-slate-400 p-2 px-3 font-semibold">
                 Timestamp
               </div>
-              <div className="w-1/2 border border-slate-300 px-3 py-2">
+              <div className="w-3/5 border-y border-r border-slate-400 p-2 px-3 font-semibold">
                 Message
               </div>
             </div>
             {messages.map((message) => {
               return (
-                <div key={message.id} className="flex border border-slate-300">
-                  <div className="w-1/2 px-3 text-sm">{message.createdAt}</div>
-                  <div className="w-1/2 px-3">{message.body}</div>
+                <div
+                  key={message.id}
+                  className="flex border-b border-slate-300"
+                >
+                  <div className="w-2/5 px-3 py-2">
+                    {new Date(message.createdAt).toLocaleDateString("en-US", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </div>
+                  <div className="w-3/5 px-3 py-2">{message.body}</div>
                 </div>
               );
             })}
