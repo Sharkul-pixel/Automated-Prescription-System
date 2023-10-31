@@ -38,7 +38,7 @@ export default function Patients() {
         <div className="w-1/3">
           <Form method="get">
             <input
-              className="mx-2 w-full rounded rounded-lg border border-2 border-slate-300 px-2.5 py-2"
+              className="mx-2 w-full rounded-lg border border-2 border-slate-300 px-2.5 py-2"
               type="search"
               name="q"
               id="q"

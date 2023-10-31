@@ -19,7 +19,7 @@ export default function PatientInfo() {
         <span className="grow font-semibold">Patient Information</span>
         <Link
           to={`/patients/${patient.id}/edit`}
-          className="flex h-fit w-fit rounded border border-slate-500 p-2 py-1 hover:bg-slate-100"
+          className="flex h-fit w-fit rounded border border-slate-300 p-2 py-1 text-slate-600 hover:bg-slate-100"
           state={{ returnUrl: location.state?.returnUrl }}
         >
           <svg

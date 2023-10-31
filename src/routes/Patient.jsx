@@ -120,7 +120,7 @@ export default function Patient() {
                 ></textarea>
               </div>
               <button
-                className="mt-2 rounded-lg border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
+                className="mt-2 rounded border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
                 type="submit"
               >
                 Send

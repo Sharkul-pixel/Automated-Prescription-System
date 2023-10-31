@@ -72,13 +72,13 @@ export default function NewPatientForm() {
         <div className="mt-8 flex">
           <div className="grow"></div>
           <button
-            className="mr-1 rounded-md border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-1.5 text-white hover:bg-[#2989ff]"
+            className="mr-1 rounded border-2 border-[#3a92ff] bg-[#4a9bff] px-6 py-1.5 text-white hover:bg-[#2989ff]"
             type="submit"
           >
             Submit
           </button>
           <button
-            className="ml-1 rounded-md border-2 border-[#798da4] bg-[#8295aa] px-6 py-1.5 text-white hover:bg-[#70869e]"
+            className="ml-1 rounded border-2 border-[#798da4] bg-[#8295aa] px-6 py-1.5 text-white hover:bg-[#70869e]"
             type="button"
             onClick={() => {
               navigate(-1);
