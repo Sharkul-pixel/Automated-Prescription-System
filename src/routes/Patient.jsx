@@ -95,37 +95,51 @@ export default function Patient() {
             <div className="h-1/2 border-r border-t border-slate-400 p-2">
               <Outlet />
             </div>
-            <Form
-              className="h-1/2 border-r border-t border-slate-400 p-2"
-              method="post"
-            >
-              <div className="flex w-full flex-col">
+            <div className="h-1/2 border-r border-t border-slate-400 p-2 px-3">
+              <Form method="post">
+                <div className="flex w-full flex-col">
+                  <button
+                    className="mb-2 flex w-fit rounded border border-slate-500 px-4 py-1 hover:bg-slate-100"
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      textareaRef.current.value = `Hello, ${patient.firstName}. Your prescription is ready for pickup at _ Pharmacy. For any questions, please contact us at _.`;
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="mr-2 h-6 w-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+                      />
+                    </svg>
+
+                    <span>Fill</span>
+                  </button>
+                  <textarea
+                    ref={textareaRef}
+                    className="rounded border border-2 border-slate-300 p-1 px-2"
+                    name="body"
+                    cols="30"
+                    rows="3"
+                    placeholder="Enter a message here"
+                  ></textarea>
+                </div>
                 <button
-                  className="mb-2 w-fit rounded border border-slate-500 px-3 py-1"
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    textareaRef.current.value = `Hello, ${patient.firstName}. Your prescription is ready for pickup at _ Pharmacy. For any questions, please contact us at _.`;
-                  }}
+                  className="mt-2 rounded border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
+                  type="submit"
                 >
-                  Fill
+                  Send
                 </button>
-                <textarea
-                  ref={textareaRef}
-                  className="rounded border border-2 border-slate-300 p-1 px-2"
-                  name="body"
-                  cols="30"
-                  rows="3"
-                  placeholder="Enter a message here"
-                ></textarea>
-              </div>
-              <button
-                className="mt-2 rounded border border-2 border-[#3a92ff] bg-[#4a9bff] px-8 py-1.5 text-white hover:bg-[#2989ff]"
-                type="submit"
-              >
-                Send
-              </button>
-            </Form>
+              </Form>
+            </div>
           </div>
           <div className="h-[calc(92vh_-_4.5rem)] w-3/5 overflow-y-auto border-t border-slate-400">
             <div className="flex">
