@@ -29,9 +29,9 @@ export default function Messages() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234a9bff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
       >
-        <div className="mx-2 flex w-fit items-center rounded-lg border-2 border-slate-300 bg-white px-8 py-1.5">
+        <div className="mx-2 flex h-[44px] w-fit items-center rounded-lg border-2 border-slate-300 bg-white px-8 py-2">
           <Link
-            className={`rounded border border-slate-400 px-2 py-1 hover:bg-blue-50 ${
+            className={`rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50 ${
               page === 1 &&
               "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
             }`}
@@ -52,7 +52,7 @@ export default function Messages() {
               />
             </svg>
           </Link>
-          <span className="ml-5 w-10 rounded border border-slate-300 py-0.5 text-center">
+          <span className="ml-5 w-10 rounded border border-slate-300 text-center">
             {page}
           </span>
           <span className="mx-1 w-6 text-center">of</span>
@@ -60,7 +60,7 @@ export default function Messages() {
             {numPages}
           </span>
           <Link
-            className={`rounded border border-slate-400 px-2 py-1 hover:bg-blue-50 ${
+            className={`rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50 ${
               page === numPages &&
               "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
             }`}
