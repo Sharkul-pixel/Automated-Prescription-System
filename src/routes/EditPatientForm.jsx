@@ -52,7 +52,7 @@ export default function EditPatientForm() {
     <>
       <Form method="patch">
         <div className="mx-1 mb-4 flex h-[33px] items-center">
-          <span className="grow font-semibold">Update Patient Details</span>
+          <span className="grow font-semibold">Edit Patient Information</span>
         </div>
         <div className="mx-1 mb-4 flex items-center">
           <div className="w-1/3">

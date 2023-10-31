@@ -16,7 +16,7 @@ export default function PatientInfo() {
   return (
     <>
       <div className="mx-1 mb-4 flex items-center">
-        <span className="grow font-semibold">Patient Details</span>
+        <span className="grow font-semibold">Patient Information</span>
         <Link
           to={`/patients/${patient.id}/edit`}
           className="flex h-fit w-fit rounded border border-slate-500 p-2 py-1 hover:bg-slate-100"
