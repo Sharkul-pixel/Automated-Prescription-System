@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 export async function loader({ request, params }) {
@@ -31,10 +32,13 @@ export default function Messages() {
       >
         <div className="mx-2 flex h-[44px] w-fit items-center rounded-lg border-2 border-slate-300 bg-white px-8 py-2">
           <Link
-            className={`rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50 ${
-              page === 1 &&
-              "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
-            }`}
+            className={clsx(
+              "rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50",
+              {
+                "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200":
+                  page === 1,
+              },
+            )}
             to={page > 1 ? `/messages?page=${page - 1}` : "/messages?page=1"}
           >
             <svg
@@ -60,10 +64,13 @@ export default function Messages() {
             {numPages}
           </span>
           <Link
-            className={`rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50 ${
-              page === numPages &&
-              "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200"
-            }`}
+            className={clsx(
+              "rounded border border-slate-400 px-2 py-0.5 hover:bg-blue-50",
+              {
+                "cursor-default border-slate-200 bg-slate-200 text-slate-400 hover:bg-slate-200":
+                  page === numPages,
+              },
+            )}
             to={
               page == numPages
                 ? `/messages?page=${numPages}`

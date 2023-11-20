@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -38,9 +39,12 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/patients`}
             className={({ isActive }) =>
-              `flex items-center border-y border-slate-300 px-3 py-5 hover:bg-slate-200 ${
-                isActive && "bg-[#dbebff] hover:bg-[#dbebff]"
-              }`
+              clsx(
+                "flex items-center border-y border-slate-300 px-3 py-5 hover:bg-slate-200",
+                {
+                  "bg-[#dbebff] hover:bg-[#dbebff]": isActive,
+                },
+              )
             }
           >
             <svg
@@ -62,9 +66,12 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/messages`}
             className={({ isActive }) =>
-              `flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200 ${
-                isActive && "bg-[#dbebff] hover:bg-[#dbebff]"
-              }`
+              clsx(
+                "flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200",
+                {
+                  "bg-[#dbebff] hover:bg-[#dbebff]": isActive,
+                },
+              )
             }
           >
             <svg
@@ -86,9 +93,12 @@ export default function HeaderAndSidebar() {
           <NavLink
             to={`/settings`}
             className={({ isActive }) =>
-              `flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200 ${
-                isActive && "bg-[#dbebff] hover:bg-[#dbebff]"
-              }`
+              clsx(
+                "flex items-center border-b border-slate-300 px-3 py-5 hover:bg-slate-200",
+                {
+                  "bg-[#dbebff] hover:bg-[#dbebff]": isActive,
+                },
+              )
             }
           >
             <svg
